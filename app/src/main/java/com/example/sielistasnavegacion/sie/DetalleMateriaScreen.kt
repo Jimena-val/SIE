@@ -48,7 +48,7 @@ fun DetalleMateriaScreen(
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 Text(text = "Calificación", color = Color.Gray, fontSize = 16.sp)
                 Text(
-                    text = "${datos.calificacion}",
+                    text = datos.calificacion,
                     fontSize = 48.sp,
                     fontWeight = FontWeight.Bold,
                     color = if ((datos.calificacion.toDoubleOrNull() ?: 0.0) >= 9.0) Color(0xFF4CAF50) else Color.Black
