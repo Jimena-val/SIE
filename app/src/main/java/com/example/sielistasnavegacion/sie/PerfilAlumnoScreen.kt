@@ -19,7 +19,6 @@ fun PerfilAlumnoScreen(
     navController: NavController,
     datos: PerfilAlumno
 ) {
-    // Buscamos al alumno por su ID en la lista de Models.kt usando el ID de los datos
     val alumno = alumnos.find { it.id == datos.idAlumno } ?: return
 
     Column(
@@ -36,7 +35,6 @@ fun PerfilAlumnoScreen(
         
         Spacer(modifier = Modifier.height(20.dp))
 
-        // Card de Información General
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -46,11 +44,9 @@ fun PerfilAlumnoScreen(
             Column {
                 Text(text = alumno.nombre, fontWeight = FontWeight.Bold, fontSize = 20.sp)
                 Text(text = "ID: ${alumno.id}")
-                // Agregamos el correo
                 Text(text = alumno.correo, color = Color(0xFFD4A017))
                 Text(text = "Carrera: ${alumno.carrera}")
-                
-                // Estos datos solo se muestran si el que entró es Coordinador
+
                 if (datos.esCoordinador) {
                     Spacer(modifier = Modifier.height(8.dp))
                     Text(text = "Pasatiempo: ${alumno.pasatiempo}")
@@ -63,11 +59,9 @@ fun PerfilAlumnoScreen(
         Text(text = "Materias en Curso", fontWeight = FontWeight.Bold, fontSize = 18.sp)
         Spacer(modifier = Modifier.height(8.dp))
 
-        // Lista de Materias (Cada una es un botón para ir al detalle)
         alumno.materias.forEach { materia ->
             Button(
-                onClick = { 
-                    // Creamos el objeto DetalleMateria para navegar
+                onClick = {
                     navController.navigate(DetalleMateria(materia.nombre, materia.faltas, materia.calificacion))
                 },
                 modifier = Modifier

@@ -28,7 +28,6 @@ fun LoginScreen(navController: NavController) {
 
         Spacer(modifier = Modifier.height(20.dp))
 
-        // 🔹 Nombre
         OutlinedTextField(
             value = nombre,
             onValueChange = { nombre = it },
@@ -38,7 +37,6 @@ fun LoginScreen(navController: NavController) {
 
         Spacer(modifier = Modifier.height(12.dp))
 
-        // 🔹 ID
         OutlinedTextField(
             value = id,
             onValueChange = { id = it },

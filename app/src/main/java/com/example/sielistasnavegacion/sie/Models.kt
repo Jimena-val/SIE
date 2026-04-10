@@ -4,7 +4,7 @@ import com.example.sielistasnavegacion.R
 data class Materia(
     val nombre: String,
     val faltas: Int,
-    val calificacion: String // Cambiado a String para evitar errores de navegación
+    val calificacion: String
 )
 
 data class Alumno(
@@ -13,7 +13,7 @@ data class Alumno(
     val correo: String,
     val carrera: String,
     val pasatiempo: String,
-    val promedio: String, // Cambiado a String
+    val promedio: String,
     val materias: List<Materia>,
     val avatar: Int
 )

@@ -35,7 +35,6 @@ fun DetalleMateriaScreen(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceEvenly
         ) {
-            // Columna de Faltas
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 Text(text = "Faltas", color = Color.Gray, fontSize = 16.sp)
                 Text(
@@ -45,15 +44,13 @@ fun DetalleMateriaScreen(
                     color = if (datos.faltas > 3) Color.Red else Color.Black
                 )
             }
-            
-            // Columna de Calificación
+
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 Text(text = "Calificación", color = Color.Gray, fontSize = 16.sp)
                 Text(
                     text = "${datos.calificacion}",
                     fontSize = 48.sp,
                     fontWeight = FontWeight.Bold,
-                    // Convertimos el String a Double solo para la comparación del color
                     color = if ((datos.calificacion.toDoubleOrNull() ?: 0.0) >= 9.0) Color(0xFF4CAF50) else Color.Black
                 )
             }

@@ -9,8 +9,6 @@ import androidx.navigation.toRoute
 import com.example.sielistasnavegacion.ui.theme.SieListasNavegacionTheme
 import kotlinx.serialization.Serializable
 
-// --- DEFINICIÓN DE RUTAS ---
-
 @Serializable
 object Login
 
@@ -24,10 +22,8 @@ data class PerfilAlumno(val idAlumno: Int, val esCoordinador: Boolean)
 data class DetalleMateria(
     val nombre: String, 
     val faltas: Int, 
-    val calificacion: String // Cambiado a String para evitar errores de NavType
+    val calificacion: String
 )
-
-// --- NAV MANAGER ---
 
 @Composable
 fun SieNavManager() {
@@ -37,31 +33,24 @@ fun SieNavManager() {
         navController = navController,
         startDestination = Login
     ) {
-        // 1. Pantalla de Login
         composable<Login> {
             LoginScreen(navController)
         }
 
-        // 2. Pantalla de Lista de Alumnos (Coordinadores)
         composable<ListaAlumnos> {
             ListaAlumnosScreen(navController)
         }
 
-        // 3. Perfil Alumno
         composable<PerfilAlumno> {
             val datos: PerfilAlumno = it.toRoute()
             PerfilAlumnoScreen(navController, datos)
         }
-
-        // 4. Detalle Materia
         composable<DetalleMateria> {
             val datos: DetalleMateria = it.toRoute()
             DetalleMateriaScreen(navController, datos)
         }
     }
 }
-
-// --- PREVIEWS ---
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
