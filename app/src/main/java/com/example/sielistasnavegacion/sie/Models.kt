@@ -4,7 +4,7 @@ import com.example.sielistasnavegacion.R
 data class Materia(
     val nombre: String,
     val faltas: Int,
-    val calificacion: Double
+    val calificacion: String // Cambiado a String para evitar errores de navegación
 )
 
 data class Alumno(
@@ -13,15 +13,15 @@ data class Alumno(
     val correo: String,
     val carrera: String,
     val pasatiempo: String,
-    val promedio: Double,
+    val promedio: String, // Cambiado a String
     val materias: List<Materia>,
     val avatar: Int
 )
 
 val materiasEjemplo = listOf(
-    Materia("Programación", 2, 9.5),
-    Materia("Base de Datos", 1, 8.7),
-    Materia("Redes", 0, 9.0)
+    Materia("Programación", 2, "9.5"),
+    Materia("Base de Datos", 1, "8.7"),
+    Materia("Redes", 0, "9.0")
 )
 
 val alumnos = List(10) { index ->
@@ -31,7 +31,7 @@ val alumnos = List(10) { index ->
         correo = "alumno${index + 1}@correo.com",
         carrera = "Ing. Sistemas",
         pasatiempo = "Deporte",
-        promedio = 9.0,
+        promedio = "9.0",
         materias = materiasEjemplo,
         avatar = R.drawable.avatar
     )

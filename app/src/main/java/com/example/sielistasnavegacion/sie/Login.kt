@@ -1,4 +1,4 @@
-package com.example.listaspeoductos.sie.screens
+package com.example.sielistasnavegacion.sie
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
@@ -57,11 +57,12 @@ fun LoginScreen(navController: NavController) {
 
                     when {
                         idNumero in 1..10 -> {
-                            navController.navigate("lista_alumnos")
+                            navController.navigate(ListaAlumnos)
                         }
 
                         idNumero in 20050..20200 -> {
-                            navController.navigate("materias_alumno/$idNumero")
+                            // Alumno entra directamente a su perfil/materias
+                            navController.navigate(PerfilAlumno(idAlumno = idNumero, esCoordinador = false))
                         }
 
                         else -> {

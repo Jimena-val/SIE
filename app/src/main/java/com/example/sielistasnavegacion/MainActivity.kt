@@ -13,8 +13,7 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             SieListasNavegacionTheme {
-                AppNavigation()
-
+                SieNavManager()
             }
         }
     }
